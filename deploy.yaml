@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-python-api
-          image: python-api:latest
+          image: ocp-python-api-git:latest
           ports:
             - name: http
               containerPort: 8081

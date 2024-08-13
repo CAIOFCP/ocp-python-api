@@ -19,7 +19,7 @@ metadata:
 components:
   - name: image-build
     image:
-      imageName: python-api:latest
+      imageName: ocp-python-api-git:latest
       dockerfile:
         uri: docker/Dockerfile
         buildContext: .
