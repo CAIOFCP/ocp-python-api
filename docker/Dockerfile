@@ -4,5 +4,8 @@ COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
 RUN python3 -m pip install -r requirements.txt
 COPY ./src /app/src
+RUN ls -l
+RUN ls -l /tmp/src
+RUN ls -l /app
 EXPOSE 8081/tcp
 CMD ["python3" , "src/app.py"]
