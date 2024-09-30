@@ -26,8 +26,6 @@ spec:
           env:
             - name: APP_FILE
               value: app.py
-            - name: APP_CONFIG
-              value: gunicorn_config.py
 ---
 kind: Service
 apiVersion: v1
