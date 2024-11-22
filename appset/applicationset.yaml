@@ -8,7 +8,7 @@ spec:
       repoURL: https://github.com/CAIOFCP/ocp-python-api.git
       revision: HEAD
       directories:
-      - path: kingdom-configs/aws/*/values.yaml"
+      - path: kingdom-configs/aws/**/values.yaml"
   template:
     metadata:
       name: '{{ .application.name }}-{{ .cluster.name }}'
@@ -20,7 +20,7 @@ spec:
         path: helm
       destination:
         server: 'https://kubernetes.default.svc'
-        namespace: '{{path.basename}}'
+        namespace: '{{.path.basename}}'
       syncPolicy:
         automated:
           prune: true
