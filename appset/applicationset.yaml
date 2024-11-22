@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/CAIOFCP/ocp-python-api.git
+      revision: HEAD
+      directories:
+      - path: kingdom-configs/{{ $cluster.cloud_provider }}-{{ $cluster.environment }}/**/**/values.yaml"
+  template:
+    metadata:
+      name: {{ `"{{ .application.name }}-{{ .cluster.name }}"` }}
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/CAIOFCP/ocp-python-api.git
+        targetRevision: HEAD
+        path: helm
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: '{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - Validate=false
+          - CreateNamespace=true
+          - RespectIgnoreDifferences=true

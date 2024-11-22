@@ -1,0 +1,4 @@
+application:
+  name: ocp-python-api-2
+cluster:
+  name: rpasrezabbix
