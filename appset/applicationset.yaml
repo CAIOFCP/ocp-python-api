@@ -11,7 +11,7 @@ spec:
       - path: kingdom-configs/{{ $cluster.cloud_provider }}-{{ $cluster.environment }}/**/**/values.yaml"
   template:
     metadata:
-      name: {{ `"{{ .application.name }}-{{ .cluster.name }}"` }}
+      name: '{{ .application.name }}-{{ .cluster.name }}'
     spec:
       project: default
       source:
